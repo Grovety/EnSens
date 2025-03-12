@@ -1,0 +1,15 @@
+identifier: ensens_nrf52833/nrf52833
+name: EnSens with Bosch BME688
+vendor: Grovety
+type: mcu
+arch: arm
+ram: 128
+flash: 512
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - ble
+  - counter
+  - gpio

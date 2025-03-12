@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_ENSENS_NRF52833
+	select SOC_NRF52833_QIAA

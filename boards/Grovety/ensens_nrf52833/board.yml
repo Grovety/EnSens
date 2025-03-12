@@ -1,0 +1,5 @@
+board:
+  name: ensens_nrf52833
+  vendor: Grovety
+  socs:
+    - name: nrf52833

@@ -1,0 +1,6 @@
+[submodule "modules/lib/bme68x"]
+	path = modules/lib/bme68x
+	url = https://github.com/boschsensortec/BME68x_SensorAPI.git
+[submodule "modules/lib/bsec"]
+	path = modules/lib/bsec
+	url = https://github.com/boschsensortec/Bosch-BSEC2-Library.git
