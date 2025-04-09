@@ -70,7 +70,7 @@ public:
     *
     * @note Call update_measurements() to update the value.
     *
-    * @return VOC concentration in parts per billion (ppb).
+    * @return VOC concentration in parts per million (ppm).
     */
    float get_voc() const;
 

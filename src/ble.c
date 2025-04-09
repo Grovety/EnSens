@@ -175,6 +175,20 @@ BT_GATT_SERVICE_DEFINE(ess_svc,
 					   BT_GATT_CCC(on_ccc_cfg_changed,
 								   BT_GATT_PERM_READ | BT_GATT_PERM_WRITE), );
 
+static uint16_t clamp_float_to_uint16(float value)
+{
+	float new_value = value;
+	if (new_value < 0.0f)
+	{
+		new_value = 0.0f;
+	}
+	else if (new_value > 65535.0f)
+	{
+		return new_value = 65535.0f;
+	}
+	return (uint16_t)new_value;
+}
+
 int bt_init()
 {
 	int err = 0;
@@ -205,7 +219,7 @@ int bt_init()
 
 void bt_set_temperature(float temp)
 {
-	int16_t new_value = (int16_t)(temp * 100);
+	int16_t new_value = (int16_t)(temp * 100.0f);
 	if (last_temp != new_value)
 	{
 		last_temp = new_value;
@@ -220,7 +234,7 @@ void bt_set_temperature(float temp)
 
 void bt_set_humidity(float humidity)
 {
-	uint16_t new_value = (uint16_t)(humidity * 100);
+	uint16_t new_value = (uint16_t)(humidity * 100.0f);
 	if (last_humidity != new_value)
 	{
 		last_humidity = new_value;
@@ -251,7 +265,7 @@ void bt_set_pressure(float pressure)
 
 void bt_set_co2(float co2)
 {
-	uint16_t new_value = (uint16_t)co2;
+	uint16_t new_value = clamp_float_to_uint16(co2);
 	if (last_co2 != new_value)
 	{
 		last_co2 = new_value;
@@ -266,7 +280,7 @@ void bt_set_co2(float co2)
 
 void bt_set_voc(float voc)
 {
-	uint16_t new_value = (uint16_t)voc;
+	uint16_t new_value = clamp_float_to_uint16(voc * 1000.0f);
 	if (last_voc != new_value)
 	{
 		last_voc = new_value;

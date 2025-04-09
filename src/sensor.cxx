@@ -109,17 +109,44 @@ int CSensor::update_measurements()
 
 float CSensor::get_temperature() const
 {
-    return sensor_value_to_float(&temp);
+    float value = sensor_value_to_float(&temp);
+    if (value > 85.0f)
+    {
+        value = 85.0f;
+    }
+    else if (value < -40.0f)
+    {
+        value = -40.0f;
+    }
+    return value;
 }
 
 float CSensor::get_humidity() const
 {
-    return sensor_value_to_float(&humidity);
+    float value = sensor_value_to_float(&humidity);
+    if (value > 100.0f)
+    {
+        value = 100.0f;
+    }
+    else if (value < 0.0f)
+    {
+        value = 0.0f;
+    }
+    return value;
 }
 
 float CSensor::get_pressure() const
 {
-    return sensor_value_to_float(&press);
+    float value = sensor_value_to_float(&press);
+    if (value > 110000.0f)
+    {
+        value = 110000.0f;
+    }
+    else if (value < 30000.0f)
+    {
+        value = 30000.0f;
+    }
+    return value;
 }
 
 float CSensor::get_co2() const
@@ -134,7 +161,16 @@ float CSensor::get_voc() const
 
 uint16_t CSensor::get_iaq() const
 {
-    return static_cast<uint16_t>(iaq.val1);
+    float value = sensor_value_to_float(&iaq);
+    if (value > 500.0f)
+    {
+        value = 500.0f;
+    }
+    else if (value < 0.0f)
+    {
+        value = 0.0f;
+    }
+    return static_cast<uint16_t>(value);
 }
 
 float CSensor::get_battery_percent() const
