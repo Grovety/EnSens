@@ -10,7 +10,16 @@
   - [Environment, Compiling and running the code](#environment-compiling-and-running-the-code)
 
 ## About
-TODO
+Precise air condition monitoring module featuring Bosch BME688 for measurement accuracy.
+
+- AQI (Air Quality Index)
+- VOC (Volatile Organic Compounds)
+- CO2 (Carbon Dioxide)
+- Temperature
+- Pressure
+- Humidity
+- 
+Open-source firmware and ready-to-use demo app for Android.
 
 ## Environment, Compiling and running the code
 ### 1. Development Environment
