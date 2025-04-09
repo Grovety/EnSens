@@ -18,6 +18,7 @@ Precise air condition monitoring module featuring Bosch BME688 for measurement a
 - Temperature
 - Pressure
 - Humidity
+
 Open-source firmware and ready-to-use demo app for Android.
 
 ## Environment, Compiling and running the code
